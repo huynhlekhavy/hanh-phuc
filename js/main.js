@@ -113,23 +113,39 @@
                 if ($("#loader").css("display") === "inline-block") return 0;
                 var params = $(form).serialize();
                 $("#loader").css("display", "inline-block");
+                
+                // Debug: Log dữ liệu form
+                console.log("Form data:", params);
+                
+                // URL Google Apps Script - URL mới đã test thành công
+                var realUrl = "https://script.google.com/macros/s/AKfycbxTCsK9Eq27TyoZiNKT6XQlCELeEqjaCp-TWP31Oyk2WyW8rFM4QUvYvcRzSDdzKywy/exec";
+                
                 $.ajax({
                     type: "GET",
-                    url: "https://script.google.com/macros/s/AKfycbycz38PFfhU2Xd2_cu_qwQ8nmllQ8qUJvxqqgrom6qLpQTd_3XG_lk0gNZCKIqnnAry/exec",
+                    url: realUrl, // Thay đổi thành testUrl để test
                     data: params,
-                    success: function () {
-                        $( "#loader").hide();
-                        $( "#success").slideDown( "slow" );
+                    dataType: "json",
+                    timeout: 10000, // 10 giây timeout
+                    success: function (response) {
+                        console.log("Success response:", response);
+                        $("#loader").hide();
+                        $("#success").slideDown("slow");
                         setTimeout(function() {
-                        $( "#success").slideUp( "slow" );
+                            $("#success").slideUp("slow");
                         }, 5000);
                         form.reset();
                     },
-                    error: function() {
-                        $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
+                    error: function(xhr, status, error) {
+                        console.log("Error details:", {
+                            status: status,
+                            error: error,
+                            responseText: xhr.responseText,
+                            statusCode: xhr.status
+                        });
+                        $("#loader").hide();
+                        $("#error").slideDown("slow");
                         setTimeout(function() {
-                        $( "#error").slideUp( "slow" );
+                            $("#error").slideUp("slow");
                         }, 5000);
                     }
                 });

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Form RSVP</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Test Form RSVP</h2>
+    
+    <form id="test-form">
+        <div>
+            <label>Tên:</label>
+            <input type="text" name="name" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <div>
+            <label>Sự kiện:</label>
+            <select name="events" required>
+                <option value="">Chọn sự kiện</option>
+                <option value="Tiệc nhà gái">Tiệc nhà gái</option>
+                <option value="Tiệc nhà trai">Tiệc nhà trai</option>
+            </select>
+        </div>
+        <div>
+            <label>Số khách:</label>
+            <select name="guest" required>
+                <option value="">Chọn số khách</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div>
+            <label>Lời nhắn:</label>
+            <textarea name="notes"></textarea>
+        </div>
+        <button type="submit">Gửi Test</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+    $(document).ready(function() {
+        $('#test-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = $(this).serialize();
+            console.log('Form data:', formData);
+            
+            // Test với URL hiện tại
+            $.ajax({
+                type: "GET",
+                url: "https://script.google.com/macros/s/AKfycbz1SrH6YtR9R0Ffd1XmFCepwR6pFb8VdEdbYkhu93dxKVS2_SsCfS1CvIMcKmWF7FRF/exec",
+                data: formData,
+                dataType: "json",
+                success: function(response) {
+                    console.log('Success:', response);
+                    $('#result').html('<p style="color: green;">Thành công: ' + JSON.stringify(response) + '</p>');
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', {
+                        status: status,
+                        error: error,
+                        responseText: xhr.responseText,
+                        statusCode: xhr.status
+                    });
+                    $('#result').html('<p style="color: red;">Lỗi: ' + error + ' (Status: ' + xhr.status + ')</p>');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

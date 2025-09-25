@@ -1,0 +1,43 @@
+<!-- 
+Phương án sử dụng Google Forms - An toàn và đơn giản nhất
+Thay thế form hiện tại bằng iframe Google Forms
+-->
+
+<!-- Thay thế phần form trong index.html từ dòng 400-441 bằng code này: -->
+<div class="contact-form form-style">
+    <!-- Google Forms Embed -->
+    <iframe 
+        src="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform?embedded=true" 
+        width="100%" 
+        height="600" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        Đang tải...
+    </iframe>
+    
+    <!-- Hoặc sử dụng button redirect -->
+    <div class="text-center mt-3">
+        <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" 
+           target="_blank" 
+           class="btn btn-primary">
+            Mở form trong tab mới
+        </a>
+    </div>
+</div>
+
+<!-- 
+Hướng dẫn tạo Google Form:
+1. Truy cập https://forms.google.com/
+2. Tạo form mới với các câu hỏi:
+   - Tên của bạn (Câu hỏi ngắn, bắt buộc)
+   - Email của bạn (Câu hỏi ngắn, bắt buộc) 
+   - Bạn sẽ tham dự tiệc (Câu hỏi trắc nghiệm, bắt buộc)
+     - Tiệc nhà gái
+     - Tiệc nhà trai
+   - Số lượng người thân đi cùng (Câu hỏi trắc nghiệm, bắt buộc)
+     - 1, 2, 3, 4
+   - Lời nhắn gửi của bạn (Câu hỏi đoạn văn, không bắt buộc)
+3. Cài đặt > Thu thập địa chỉ email
+4. Lấy link chia sẻ và thay thế YOUR_FORM_ID_HERE
+-->

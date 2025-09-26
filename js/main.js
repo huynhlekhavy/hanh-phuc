@@ -197,18 +197,19 @@
     });
 
 
-    /*------------------------------------------
-        = COUNTDOWN CLOCK
-    -------------------------------------------*/
-    if ($("#clock").length) {
-        $('#clock').countdown('2025/10/03', function(event) {
-            var $this = $(this).html(event.strftime('' +
-                '<div class="box"><div class="date">%D</div> <span>Days</span> </div>' +
-                '<div class="box"><div class="date">%H</div> <span>Hours</span> </div>' +
-                '<div class="box"><div class="date">%M</div> <span>Mins</span> </div>' +
-                '<div class="box"><div class="date">%S</div> <span>Secs</span> </div>'));
-        });
-    }
+/*------------------------------------------
+    = COUNTDOWN CLOCK
+-------------------------------------------*/
+if ($("#clock").length) {
+    $('#clock').countdown('2025/10/03 17:30:00', function(event) {
+        var $this = $(this).html(event.strftime('' +
+            '<div class="box"><div class="date">%D</div> <span>Days</span> </div>' +
+            '<div class="box"><div class="date">%H</div> <span>Hours</span> </div>' +
+            '<div class="box"><div class="date">%M</div> <span>Mins</span> </div>' +
+            '<div class="box"><div class="date">%S</div> <span>Secs</span> </div>'
+        ));
+    });
+}
 
     /*================================
      Variable Initialize

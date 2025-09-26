@@ -1221,20 +1221,29 @@ service-area
 }
 
 .ceromony-content h3 {
-    font-size: 30px;
+    font-size: 40px;
     color: #649e93;
     margin-bottom: 16px;
+    font-weight: 600;
 }
-
+.ceromony-content2 li b {
+    font-weight: 700;   /* đậm hơn bình thường */
+    color: #000;        /* màu đen */
+    font-size: 20px;    /* nếu muốn to hơn */
+}
 .ceromony-content a {
     color: #649e93;
     font-weight: 600;
 }
-
+.ceromony-content2 ul li {
+    font-size: 22px; /* Địa chỉ, thời gian */
+}
 .ceromony-content span {
     display: block;
 }
-
+.ceromony-content2 a {
+    font-size: 24px; /* Link "Dẫn đường" */
+}
 .ceromony-content p {
     padding: 20px 0;
     padding-right: 20px;
